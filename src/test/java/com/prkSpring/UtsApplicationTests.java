@@ -1,4 +1,4 @@
-package com.uts.uts;
+package com.prkSpring;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
