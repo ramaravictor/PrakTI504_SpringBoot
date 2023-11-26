@@ -22,8 +22,26 @@
             <div class="album py-5 bg-light">
                 <div class="container">
                     <div class="card">
-                        <div class="card-body text-center container">
-                            <div class="table-responsive">
+                        <div class="card-body container">
+                            <form action="" method="GET">
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <a href="/addExam" class="btn btn-primary"
+                                                style="padding-top: 10px; padding-bottom: 10px;">TAMBAH EXAM</a>
+                                        </div>
+                                        <input type="text" class="form-control" name="q"
+                                            placeholder="Cari berdasarkan nama exam">
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-primary"
+                                                style="padding-top: 10px; padding-bottom: 10px;">
+                                                CARI
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="table-responsive text-center">
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>

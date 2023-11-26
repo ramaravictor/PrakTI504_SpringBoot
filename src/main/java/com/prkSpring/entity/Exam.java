@@ -10,6 +10,11 @@ public class Exam {
     private String start;
     private String end;
 
+    //Constructor exam
+    public Exam() {
+        
+    }
+
     // contructor using all fields
     public Exam(long id, String name, String time, String total_question, String start, String end) {
         this.id = id;
@@ -19,7 +24,7 @@ public class Exam {
         this.start = start;
         this.end = end;
     }
-    
+
     //method setters & getters
     public long getId() {
         return this.id;

@@ -4,7 +4,6 @@
  */
 package com.prkSpring.contoller;
 
-
 import com.prkSpring.entity.Exam;
 import com.prkSpring.service.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  *
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  */
 @Controller
 public class ExamController {
-    //anotasikan class service ke controller
+    // anotasikan class service ke controller
     @Autowired
     private ExamService examService;
 
@@ -28,6 +28,19 @@ public class ExamController {
         model.addAttribute("activePage", "exam");
         model.addAttribute("exam", examService.findAll());
         return "exam";
+    }
+
+    @GetMapping("/addExam")
+    public String addExam(Model model) {
+        model.addAttribute("activePage", "exam");
+        model.addAttribute("exam", new Exam());
+        return "addExam";
+    }
+
+    @PostMapping("/save")
+    public String save(Exam exam, Model model) {
+        examService.addExam(exam);
+        return "redirect:/exam";
     }
 
     @GetMapping("/viewExam/{id}")
