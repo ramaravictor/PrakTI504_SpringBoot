@@ -53,4 +53,29 @@ public class ExamController {
         // Kembalikan nama tampilan yang sesuai
         return "viewExam";
     }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Long id){
+        // Panggil service untuk melakukan penghapusan
+        examService.deleteById(id);
+        // Redirect ke halaman "/exam"
+        return "redirect:/exam";
+    }
+
+
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable("id") Long id, Model model){
+        // Panggil service untuk melakukan edit
+        model.addAttribute("exam", examService.findById(id));
+        //membuka halaman "/exam"
+        return "/editExam";
+    }
+
+    @PostMapping("/update")
+    public String update(Exam exam, Model model) {
+        // call service update
+        examService.updateExam(exam);
+        // Redirect ke halaman "/exam"
+        return "redirect:/exam";
+    }
 }
