@@ -44,31 +44,27 @@ public class ExamController {
     }
 
     @GetMapping("/viewExam/{id}")
-    public String showView(@PathVariable Long id, Model model) {
-        // Panggil metode layanan untuk mendapatkan data berdasarkan ID
-        Exam exam = examService.getExamById(id);
-        // Simpan data ke model untuk digunakan di tampilan
-        model.addAttribute("exam", exam);
-        model.addAttribute("activePage", "exam");
-        // Kembalikan nama tampilan yang sesuai
+    public String view(@PathVariable("id") Long id, Model model) {
+        // Panggil service untuk melakukan edit
+        model.addAttribute("exam", examService.findById(id));
+        // membuka halaman "/exam"
         return "viewExam";
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable("id") Long id){
+    public String delete(@PathVariable("id") Long id) {
         // Panggil service untuk melakukan penghapusan
         examService.deleteById(id);
         // Redirect ke halaman "/exam"
         return "redirect:/exam";
     }
 
-
     @GetMapping("/edit/{id}")
-    public String edit(@PathVariable("id") Long id, Model model){
+    public String edit(@PathVariable("id") Long id, Model model) {
         // Panggil service untuk melakukan edit
         model.addAttribute("exam", examService.findById(id));
-        //membuka halaman "/exam"
-        return "/editExam";
+        // membuka halaman "/exam"
+        return "editExam";
     }
 
     @PostMapping("/update")

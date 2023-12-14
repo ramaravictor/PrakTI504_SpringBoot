@@ -24,18 +24,18 @@
                     <div class="col-lg-8 mx-auto">
                         <div class="card">
                             <div class="card-header">
-                                <h4 th:text="'Ujian: ' + ${exam.name}" class="card-title"></h4>
+                                <h4 th:text="'Ujian: ' + ${exam.get().name}" class="card-title"></h4>
                             </div>
 
                             <div class="card-body">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item" th:text="'Durasi Ujian ' + ${exam.time} + ' Menit'">
+                                    <li class="list-group-item" th:text="'Durasi Ujian : ' + ${exam.get().time} + ' Menit'">
                                     </li>
                                     <li class="list-group-item"
-                                        th:text="'Jumlah Soal : ' + ${exam.total_question} + ' Soal'"></li>
-                                    <li class="list-group-item" th:text="'Ujian dibuka : ' + ${exam.start}">
+                                        th:text="'Jumlah Soal : ' + ${exam.get().total_question} + ' Soal'"></li>
+                                    <li class="list-group-item" th:text="'Ujian dibuka : ' + ${exam.get().start}">
                                     </li>
-                                    <li class="list-group-item" th:text="'Ujian ditutup : ' + ${exam.end}"></li>
+                                    <li class="list-group-item" th:text="'Ujian ditutup : ' + ${exam.get().end}"></li>
                                 </ul>
                             </div>
                             <div class="card-footer">

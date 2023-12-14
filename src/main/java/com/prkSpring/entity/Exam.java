@@ -1,77 +1,93 @@
 package com.prkSpring.entity;
 
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 //class objek yg akan ditampilkan di view
+@Entity
+@Table(name = "tbl_exam")
 public class Exam {
     // deklarasikan variabel
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(length = 150, nullable = false)
     private String name;
-    private String time;
-    private String total_question;
-    private String start;
-    private String end;
+
+    @Column(nullable = false)
+    private Long time;
+
+    @Column(name = "total_question", nullable = false)
+    private int total_question;
+
+    @Column(nullable = false)
+    private LocalDateTime start;
+
+    @Column(nullable = false)
+    private LocalDateTime end;
+
 
     //Constructor exam
     public Exam() {
         
     }
 
-    // contructor using all fields
-    public Exam(long id, String name, String time, String total_question, String start, String end) {
-        this.id = id;
-        this.name = name;
-        this.time = time;
-        this.total_question = total_question;
-        this.start = start;
-        this.end = end;
+    public Long getId() {
+        return id;
     }
 
-    //method setters & getters
-    public long getId() {
-        return this.id;
-    }
-
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getTime() {
-        return this.time;
+    public Long getTime() {
+        return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Long time) {
         this.time = time;
     }
 
-    public String getTotal_question() {
-        return this.total_question;
+    public int getTotal_question() {
+        return total_question;
     }
 
-    public void setTotal_question(String total_question) {
+    public void setTotal_question(int total_question) {
         this.total_question = total_question;
     }
 
-    public String getStart() {
-        return this.start;
+    public LocalDateTime getStart() {
+        return start;
     }
 
-    public void setStart(String start) {
+    public void setStart(LocalDateTime start) {
         this.start = start;
     }
 
-    public String getEnd() {
-        return this.end;
+    public LocalDateTime getEnd() {
+        return end;
     }
 
-    public void setEnd(String end) {
+    public void setEnd(LocalDateTime end) {
         this.end = end;
     }
+    
+    
+
 
 }
