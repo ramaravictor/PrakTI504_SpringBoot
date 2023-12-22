@@ -2,13 +2,10 @@ package com.prkSpring.service;
 
 import com.prkSpring.entity.Exam;
 import com.prkSpring.repo.ExamRepo;
-import com.prkSpring.utils.RandomNumber;
-
 import jakarta.transaction.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,5 +42,10 @@ public class ExamService {
     //function update
     public void updateExam(Exam exam){
         repo.save(exam);
+    }
+
+    //search by keyword
+    public List<Exam>findByName(String keyword){
+        return repo.findByNameContains(keyword);
     }
 }

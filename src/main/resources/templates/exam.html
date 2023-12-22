@@ -23,15 +23,16 @@
                 <div class="container">
                     <div class="card">
                         <div class="card-body container">
-                            <form action="" method="GET">
+                            <!-- form search -->
+                            <form  method="GET" th:object="${searchForm}" th:action="@{/search }">
                                 <div class="form-group">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <a href="/addExam" class="btn btn-primary"
                                                 style="padding-top: 10px; padding-bottom: 10px;">TAMBAH EXAM</a>
                                         </div>
-                                        <input type="text" class="form-control" name="q"
-                                            placeholder="Cari berdasarkan nama exam">
+                                        <input type="text" class="form-control" placeholder="Cari berdasarkan nama exam"
+                                            th:field="*{keyword}">
                                         <div class="input-group-append">
                                             <button type="submit" class="btn btn-primary"
                                                 style="padding-top: 10px; padding-bottom: 10px;">

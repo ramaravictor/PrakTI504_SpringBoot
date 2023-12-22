@@ -7,11 +7,9 @@ package com.prkSpring.repo;
 import org.springframework.data.repository.CrudRepository;
 
 import com.prkSpring.entity.Exam;
+import java.util.List;
 
-/**
- *
- * @author ramar
- */
+
 public interface ExamRepo extends CrudRepository<Exam, Long> {
-    
+    List <Exam> findByNameContains(String keyword);
 }

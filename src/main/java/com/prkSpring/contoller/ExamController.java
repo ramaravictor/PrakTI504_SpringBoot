@@ -4,6 +4,7 @@
  */
 package com.prkSpring.contoller;
 
+import com.prkSpring.dto.SearchFormData;
 import com.prkSpring.entity.Exam;
 import com.prkSpring.service.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class ExamController {
     @GetMapping("/exam")
     public String exam(Model model) {
         model.addAttribute("activePage", "exam");
+        model.addAttribute("searchForm", new SearchFormData());
+        
         model.addAttribute("exam", examService.findAll());
         return "exam";
     }
@@ -73,5 +76,13 @@ public class ExamController {
         examService.updateExam(exam);
         // Redirect ke halaman "/exam"
         return "redirect:/exam";
+    }
+
+    //function untuk search
+    @GetMapping("/search")
+    public String search(SearchFormData searchFormData, Model model){
+        model.addAttribute("searchForm", searchFormData);
+        model.addAttribute("exam", examService.findByName(searchFormData.getKeyword()));
+        return "exam";
     }
 }
